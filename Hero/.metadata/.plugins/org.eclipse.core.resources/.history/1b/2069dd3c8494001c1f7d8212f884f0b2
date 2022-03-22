@@ -1,0 +1,16 @@
+package plactice;
+
+public class Main{
+	static int num = 0;//staticなローカル変数はjavaでは宣言できない。
+	static {
+		num = 10;
+	}
+	static void test(int num) {
+		num = num *2;
+	}
+	public static void main(String[] args) {
+		int num = 0;
+		test(num);
+		System.out.println(num);
+	}
+}

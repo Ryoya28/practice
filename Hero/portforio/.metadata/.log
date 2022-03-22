@@ -1,0 +1,78 @@
+!SESSION 2022-03-05 22:35:01.219 -----------------------------------------------
+eclipse.buildId=4.14.0.I20191210-0610
+java.version=11.0.5
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ja_JP
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/miurachie/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/miurachie/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2022-03-05 22:35:40.135
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.jface 2 0 2022-03-05 22:35:43.095
+!MESSAGE キーバインドの競合が発生しました。 通常のアクセラレーター操作を妨げる可能性があります。
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-03-05 22:35:43.095
+!MESSAGE COMMAND+SHIFT+T の競合が発生しました:
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,型を開く,
+		型を Java エディターで開きます,
+		Category(org.eclipse.ui.category.navigate,ナビゲート,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@25df95b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(COMMAND+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,ワークスペース内のシンボルにジャンプ,
+		,
+		Category(org.eclipse.lsp4e.category,言語サーバー,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2fb9695a,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2022-03-05 22:35:43.095
+!MESSAGE COMMAND+SHIFT+- の競合が発生しました:
+Binding(COMMAND+SHIFT+-,
+	ParameterizedCommand(Command(org.eclipse.ui.window.splitEditor,エディター分割の切り替え,
+		現在のアクティブなエディターを分割または結合します。,
+		Category(org.eclipse.ui.category.window,ウィンドウ,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@33da0fad,
+		[Parameter(Splitter.isHorizontal,向き,null,false)],,true),[org.eclipse.core.commands.Parameterization@6102fa90]),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,ja,,system)
+Binding(COMMAND+SHIFT+-,
+	ParameterizedCommand(Command(org.eclipse.ui.window.splitEditor,エディター分割の切り替え,
+		現在のアクティブなエディターを分割または結合します。,
+		Category(org.eclipse.ui.category.window,ウィンドウ,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@33da0fad,
+		[Parameter(Splitter.isHorizontal,向き,null,false)],,true),[org.eclipse.core.commands.Parameterization@6102fa90]),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY org.eclipse.jface.text 2 0 2022-03-05 22:35:45.496
+!MESSAGE 重複テンプレート ID: 'zigen.plugin.db.template.sql.case'
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2022-03-05 22:44:42.185
+!MESSAGE http://www.ne.jp/asahi/zigen/home/plugin/dbviewer/」 のリポジトリーが見つかりません。
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2022-03-05 22:44:49.629
+!MESSAGE http://download.eclipse.org/technology/m2e/releases/ のリポジトリーが見つかりません。
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1002 2022-03-05 22:45:36.756
+!MESSAGE HTTP サーバー '不正なゲートウェイ' : http://dl.bintray.com/testng-team/testng-p2-release/content.xml
+!STACK 1
+org.eclipse.ecf.filetransfer.BrowseFileTransferException: HttpComponents connection error response code 502.
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:276)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.ecf.identity 4 0 2022-03-05 22:45:36.770
+!MESSAGE HttpComponents connection error response code 502.
+
+!ENTRY org.eclipse.equinox.p2.updatechecker 4 0 2022-03-05 22:45:54.282
+!MESSAGE Exception in update check thread
+!STACK 0
+java.lang.IllegalArgumentException: timeout value is negative
+	at java.base/java.lang.Thread.sleep(Native Method)
+	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:90)
+
+!ENTRY org.eclipse.ui 2 2 2022-03-08 20:04:18.020
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)

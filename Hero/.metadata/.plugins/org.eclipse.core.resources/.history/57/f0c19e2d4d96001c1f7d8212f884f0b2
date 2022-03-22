@@ -1,0 +1,6 @@
+package plactice;
+
+abstract class Sample {
+	protected void doProcess() {}
+	abstract void doTest();
+}
