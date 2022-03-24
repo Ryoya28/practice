@@ -1,43 +1,75 @@
-<!DOCTYPE html>
-<html lang="ja">
+const quiz = [
+  {
+    question: 'ゲーム史上、最も売れたゲーム機はどれ？',
+    answers: [ 'スーパーファミコン', 'PlayStation 2', 'ニンテンドーDS', 'Xbox 360'],
+    correct: 'ニンテンドーDS'
+  }, {
+    question: '糸井重里が企画に関わった、任天堂の看板ゲームといえば？',
+    answers: [ 'MOTHER2', 'スーパーマリオブラザーズ3', 'スーパードンキーコング', '星のカービィ'],
+    correct: 'MOTHER2'
+  }, {
+    question: 'ファイナルファンタジーⅣの主人公の名前は？',
+    answers: [ 'フリオニール', 'クラウド', 'ティーダ', 'セシル'],
+    correct: 'セシル'
+  }
+];
 
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+const $window = window;
+const $doc = document;
+const $question = $doc.getElementById('js-question');
+const $buttons = $doc.querySelectorAll('.btn');
 
-    <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-   <!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+const quizLen = quiz.length;
+let quizCount = 0;
+let score = 0;
 
-    <meta name="theme-color" content="#fafafa">
-</head>
+const init = () => {
+  $question.textContent = quiz[quizCount].question;
+  
+  const buttonLen = $buttons.length;
+  let btnIndex = 0;
+  
+  while(btnIndex < buttonLen){
+    $buttons[btnIndex].textContent = quiz[quizCount].answers[btnIndex];
+    btnIndex++;
+  }
+};
 
-<body>
-    
-    <div class="container">
-        <div id="js-question" class="mt-3 alert alert-primary" role="alert">
-            A simple primary alert-check it out!  
-        </div>
-        
-    </div>
+const goToNext = () => {
+  quizCount++;
+  if(quizCount < quizLen){
+    init(quizCount);
+  } else {
+    // $window.alert('クイズ終了！');
+    showEnd();
+  }
+};
 
-    <div class="d-flex justify-conten-center">
-        <button type="button" class="btn btn-primary">Primary</button>        
-        <button type="button" class="ml-1 btn btn-primary">Primary</button>   
-        <button type="button" class="ml-1 btn btn-primary">Primary</button>   
-        <button type="button" class="ml-1 btn btn-primary">Primary</button>   
-    </div>
+const judge = (elm) => {
+  if(elm.textContent === quiz[quizCount].correct){
+    $window.alert('正解!');
+    score++;
+  } else {
+    $window.alert('不正解!');
+  }
+  goToNext();
+};
 
-</body>
+const showEnd = () => {
+  $question.textContent = '終了！あなたのスコアは' + score + '/' + quizLen + 'です';
+  
+  const $items = $doc.getElementById('js-items');
+  $items.style.visibility = 'hidden';
+};
 
-</html>
+init();
 
+let answersIndex = 0;
+let answersLen = quiz[quizCount].answers.length;
 
-
-
-
-
-
+while(answersIndex < answersLen){
+  $buttons[answersIndex].addEventListener('click', (e) => {
+    judge(e.target);
+  });
+  answersIndex++;
+}
